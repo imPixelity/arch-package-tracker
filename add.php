@@ -1,22 +1,14 @@
-<form action="process.php" method="post">
+<form action="add-process.php" method="post">
     <label>Package Name:
         <input type="text" name="package-name">
     </label>
     <br>
     <label>Category:
-        <select name="category">
-            <option value="foo">foo</option>
-            <option value="bar">bar</option>
-            <option value="baz" selected>baz</option>
-        </select>
+        <input type="text" name="category">
     </label>
     <br>
     <label>Source:
-        <select name="source">
-            <option value="foo">foo</option>
-            <option value="bar">bar</option>
-            <option value="baz" selected>baz</option>
-        </select>
+        <input type="text" name="source">
     </label>
     <br>
     <label>Notes:

@@ -1,4 +1,10 @@
 <?php
 session_start();
-session_destroy();
+
+foreach ($_SESSION['packages'] as $key => $package) {
+    if ($package['id'] === $_GET['id']) {
+        unset($_SESSION['packages'][$key]);
+    }
+}
+
 header('Location: /index.php');

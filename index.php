@@ -7,7 +7,6 @@ if (!isset($_SESSION['packages'])) {
 ?>
 
 <a href="add.php">Add data</a>
-<a href="delete.php">Delete session</a>
 
 <table>
     <?php foreach ($_SESSION['packages'] as $package) { ?>
@@ -16,6 +15,8 @@ if (!isset($_SESSION['packages'])) {
             <td><?= $package['category'] ?></td>
             <td><?= $package['source'] ?></td>
             <td><?= $package['notes'] ?></td>
+            <td><a href="edit.php?id=<?= $package['id'] ?>">edit</a></td>
+            <td><a href="delete.php?id=<?= $package['id'] ?>">delete</a></td>
         </tr>
     <?php } ?>
 </table>
