@@ -30,23 +30,28 @@ if (!isset($_SESSION['packages'])) {
             </div>
 
             <table>
-                <tr>
-                    <th>PACKAGE NAME</th>
-                    <th>CATEGORY</th>
-                    <th>SOURCE</th>
-                    <th>NOTES</th>
-                    <th colspan="2">ACTIONS</th>
-                </tr>
-                <?php foreach ($_SESSION['packages'] as $package) { ?>
+                <thead>
                     <tr>
-                        <td><?= $package['package-name'] ?></td>
-                        <td><?= $package['category'] ?></td>
-                        <td><?= $package['source'] ?></td>
-                        <td><?= $package['notes'] ?></td>
-                        <td><a href="edit.php?id=<?= $package['id'] ?>">edit</a></td>
-                        <td><a href="delete.php?id=<?= $package['id'] ?>">delete</a></td>
+                        <th>PACKAGE NAME</th>
+                        <th>CATEGORY</th>
+                        <th>SOURCE</th>
+                        <th>NOTES</th>
+                        <th colspan="2">ACTIONS</th>
                     </tr>
-                <?php } ?>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($_SESSION['packages'] as $package) { ?>
+                        <tr>
+                            <td><?= $package['package-name'] ?></td>
+                            <td><?= $package['category'] ?></td>
+                            <td><?= $package['source'] ?></td>
+                            <td><?= $package['notes'] ?></td>
+                            <td><a href="edit.php?id=<?= $package['id'] ?>">edit</a></td>
+                            <td><a href="delete.php?id=<?= $package['id'] ?>">delete</a></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
