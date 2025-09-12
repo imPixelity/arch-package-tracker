@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <div class="wrapper">
+            <h1>Add Package</h1>
             <form action="add-process.php" method="post">
                 <table>
                     <tr>
