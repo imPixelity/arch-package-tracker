@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container .wrapper {
+  background-color: green;
+  width: 80%;
+}
+
+header {
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.section-add-button {
+  background-color: violet;
+  margin-top: 24px;
+}
+
+.section-add-button .add-button {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 18px;
+  border: 1px black solid;
+  color: black;
+  background-color: lightblue;
+  width: fit-content;
+  padding: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: gray;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 12px;
+}
