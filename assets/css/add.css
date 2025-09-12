@@ -21,28 +21,10 @@
 
 .container .wrapper {
   /* background-color: green; */
-  width: 80%;
-}
-
-header {
-  /* background-color: blue; */
   display: flex;
-  align-items: center;
+  justify-content: center;
   margin-top: 24px;
-  gap: 4px;
-}
-
-.section-add-button {
-  /* background-color: violet; */
-  margin-top: 24px;
-}
-
-.section-add-button .add-button {
-  text-decoration: none;
-  border: 1px var(--dark-blue) solid;
-  color: var(--white);
-  background-color: var(--blue);
-  padding: 8px;
+  width: 80%;
 }
 
 table {
@@ -53,34 +35,31 @@ table {
 }
 
 table,
-td,
-th {
-  border: 1px solid var(--dark-blue);
+td {
+  border: 1px solid var(--blue);
   padding: 12px;
 }
 
-thead {
-  background-color: var(--blue);
+.submit-button {
+  width: 100%;
   color: var(--white);
-}
-
-.edit-button {
   background-color: var(--blue);
-  text-decoration: none;
-  color: var(--white);
   border: 1px var(--grey) solid;
   padding: 4px 8px;
+  cursor: pointer;
 }
 
-.delete-button {
+.back-button {
+  text-decoration: none;
+  border: 1px var(--grey) solid;
+  padding: 4px 8px;
+  color: var(--white);
   background-color: var(--dark-blue);
-  text-decoration: none;
-  color: var(--white);
-  border: 1px var(--grey) solid;
-  padding: 4px 8px;
+  cursor: pointer;
 }
 
-.edit-box,
-.delete-box {
-  text-align: center;
+.required::after {
+  content: "*";
+  color: var(--dark-blue);
+  margin-left: 2px;
 }
