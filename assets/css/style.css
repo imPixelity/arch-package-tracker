@@ -1,48 +1,55 @@
+:root {
+  --blue: #1793d1;
+  --grey: #333333;
+  --white: #ffffff;
+  --dark-blue: #0f3b61;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: monospace;
 }
 
 .container {
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
 .container .wrapper {
-  background-color: green;
+  /* background-color: green; */
   width: 80%;
 }
 
 header {
-  background-color: blue;
+  /* background-color: blue; */
   display: flex;
   align-items: center;
   margin-top: 24px;
+  gap: 4px;
 }
 
 .section-add-button {
-  background-color: violet;
+  /* background-color: violet; */
   margin-top: 24px;
 }
 
 .section-add-button .add-button {
-  display: inline-block;
   text-decoration: none;
-  border-radius: 18px;
-  border: 1px black solid;
-  color: black;
-  background-color: lightblue;
-  width: fit-content;
-  padding: 12px;
+  border: 1px var(--grey) solid;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 8px;
 }
 
 table {
+  margin-top: 24px;
   width: 100%;
   border-collapse: collapse;
-  background-color: gray;
+  background-color: var(--white);
 }
 
 table,
@@ -50,4 +57,30 @@ td,
 th {
   border: 1px solid black;
   padding: 12px;
+}
+
+thead {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.edit-button,
+.delete-button {
+  text-decoration: none;
+  color: var(--white);
+  border: 1px var(--grey) solid;
+  padding: 4px 8px;
+}
+
+.edit-button {
+  background-color: var(--blue);
+}
+
+.delete-button {
+  background-color: var(--dark-blue);
+}
+
+.edit-box,
+.delete-box {
+  text-align: center;
 }

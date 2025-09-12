@@ -26,17 +26,17 @@ if (!isset($_SESSION['packages'])) {
             </header>
 
             <div class="section-add-button">
-                <a href="add.php" class="add-button">Add data</a>
+                <a href="add.php" class="add-button">Add Package</a>
             </div>
 
             <table>
                 <thead>
                     <tr>
-                        <th>PACKAGE NAME</th>
-                        <th>CATEGORY</th>
-                        <th>SOURCE</th>
-                        <th>NOTES</th>
-                        <th colspan="2">ACTIONS</th>
+                        <th>Package Name</th>
+                        <th>Category</th>
+                        <th>Source</th>
+                        <th>Notes</th>
+                        <th colspan="2">Actions</th>
                     </tr>
                 </thead>
 
@@ -47,8 +47,8 @@ if (!isset($_SESSION['packages'])) {
                             <td><?= $package['category'] ?></td>
                             <td><?= $package['source'] ?></td>
                             <td><?= $package['notes'] ?></td>
-                            <td><a href="edit.php?id=<?= $package['id'] ?>">edit</a></td>
-                            <td><a href="delete.php?id=<?= $package['id'] ?>">delete</a></td>
+                            <td class="edit-box"><a href="edit.php?id=<?= $package['id'] ?>" class="edit-button">Edit</a></td>
+                            <td class="delete-box"><a href="delete.php?id=<?= $package['id'] ?>" class="delete-button">Delete</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
