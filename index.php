@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// init packages if not exist
 if (!isset($_SESSION['packages'])) {
     $_SESSION['packages'] = [];
 }
@@ -43,12 +44,16 @@ if (!isset($_SESSION['packages'])) {
                 <tbody>
                     <?php foreach ($_SESSION['packages'] as $package) { ?>
                         <tr>
-                            <td><?= $package['package-name'] ?></td>
-                            <td><?= $package['category'] ?></td>
-                            <td><?= $package['source'] ?></td>
-                            <td><?= $package['notes'] ?></td>
-                            <td class="edit-box"><a href="edit.php?id=<?= $package['id'] ?>" class="edit-button">Edit</a></td>
-                            <td class="delete-box"><a href="delete.php?id=<?= $package['id'] ?>" class="delete-button">Delete</a></td>
+                            <td><?= htmlspecialchars($package['package-name']) ?></td>
+                            <td><?= htmlspecialchars($package['category']) ?></td>
+                            <td><?= htmlspecialchars($package['source']) ?></td>
+                            <td><?= htmlspecialchars($package['notes']) ?></td>
+                            <td class="edit-box">
+                                <a href="edit.php?id=<?= urlencode($package['id']) ?>" class="edit-button">Edit</a>
+                            </td>
+                            <td class="delete-box">
+                                <a href="delete.php?id=<?= urlencode($package['id']) ?>" class="delete-button" onclick="return confirm('Confirm to delete package');">Delete</a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
