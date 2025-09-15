@@ -2,10 +2,24 @@
 session_start();
 
 $id = uniqid();
-$package_name = $_POST['package-name'];
-$category = $_POST['category'];
-$source = $_POST['source'];
-$notes = $_POST['notes'];
+$package_name = isset($_POST['package-name']) ? trim($_POST['package-name']) : '';
+$category = isset($_POST['category']) ? trim($_POST['category']) : '';
+$source = isset($_POST['source']) ? trim($_POST['source']) : '';
+$notes = isset($_POST['notes']) ? trim($_POST['notes']) : '';
 
-$_SESSION['packages'][] = ['id' => $id, 'package-name' => $package_name, 'category' => $category, 'source' => $source, 'notes' => $notes];
+// required input validation
+if ($package_name === '' || $source === '') {
+    header('Location: /add.php?error=missing_fields');
+    exit;
+}
+
+$_SESSION['packages'][] = [
+    'id' => $id,
+    'package-name' => htmlspecialchars($package_name),
+    'category' => htmlspecialchars($category),
+    'source' => htmlspecialchars($source),
+    'notes' => htmlspecialchars($notes)
+];
+
 header('Location: /index.php');
+exit;

@@ -1,10 +1,19 @@
 <?php
 session_start();
 
-foreach ($_SESSION['packages'] as $key => $package) {
+if (!isset($_GET['id']) || $_GET['id'] === '') {
+    header('Location: /index.php?error=invalid_id');
+    break;
+}
+
+foreach ($_SESSION['packages'] as $k => $package) {
     if ($package['id'] === $_GET['id']) {
-        unset($_SESSION['packages'][$key]);
+        unset($_SESSION['packages'][$k]);
+        break;
     }
 }
 
+// avoid gaps
+$_SESSION['packages'] = array_values($_SESSION['packages']);
 header('Location: /index.php');
+exit;

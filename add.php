@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['error'])) {
+    $err = htmlspecialchars($_GET['error']);
+    echo "<script>alert('error, $err');</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

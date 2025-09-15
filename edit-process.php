@@ -1,14 +1,26 @@
 <?php
 session_start();
 
-foreach ($_SESSION['packages'] as &$package) {
-    if ($package['id'] === $_POST['id']) {
-        $package['package-name'] = $_POST['package-name'];
-        $package['category'] = $_POST['category'];
-        $package['source'] = $_POST['source'];
-        $package['notes'] = $_POST['notes'];
+$id = isset($_POST['id']) ? $_POST['id'] : '';
+$package_name = isset($_POST['package-name']) ? trim($_POST['package-name']) : '';
+$category = isset($_POST['category']) ? trim($_POST['category']) : '';
+$source = isset($_POST['source']) ? trim($_POST['source']) : '';
+$notes = isset($_POST['notes']) ? trim($_POST['notes']) : '';
+
+if ($id === '' || $package_name === '' || $source === '') {
+    header('Location: /index.php?error=missing_fields');
+    exit;
+}
+
+foreach ($_SESSION['packages'] as $k => $package) {
+    if ($package['id'] === $id) {
+        $_SESSION['packages'][$k]['package-name'] = htmlspecialchars($package_name);
+        $_SESSION['packages'][$k]['category'] = htmlspecialchars($category);
+        $_SESSION['packages'][$k]['source'] = htmlspecialchars($source);
+        $_SESSION['packages'][$k]['notes'] = htmlspecialchars($notes);
         break;
     }
 }
 
 header('Location: /index.php');
+exit;

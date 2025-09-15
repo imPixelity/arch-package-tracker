@@ -1,14 +1,27 @@
 <?php
 session_start();
 
+// if user try to find id via url
+if (!isset($_GET['id']) || $_GET['id'] === '') {
+    header('Location: /index.php?error=invalid_id');
+}
+
+$found = false;
 foreach ($_SESSION['packages'] as $package) {
     if ($package['id'] === $_GET['id']) {
         $package_name = $package['package-name'];
         $category = $package['category'];
         $source = $package['source'];
         $notes = $package['notes'];
+        $found = true;
         break;
     }
+}
+
+// package not found
+if (!$found) {
+    header('Location: /index.php?error=package_not_found');
+    exit;
 }
 ?>
 
@@ -28,14 +41,14 @@ foreach ($_SESSION['packages'] as $package) {
         <div class="wrapper">
             <h1>Edit Package</h1>
             <form action="edit-process.php" method="post">
-                <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id']) ?>">
                 <table>
                     <tr>
                         <td>
                             <label for="package-name" class="required">Package Name</label>
                         </td>
                         <td>
-                            <input type="text" name="package-name" id="package-name" required value="<?= $package_name ?>">
+                            <input type="text" name="package-name" id="package-name" required value="<?= htmlspecialchars($package_name) ?>">
                         </td>
                     </tr>
 
@@ -44,7 +57,7 @@ foreach ($_SESSION['packages'] as $package) {
                             <label for="category">Category</label>
                         </td>
                         <td>
-                            <input type="text" name="category" id="category" value="<?= $category ?>">
+                            <input type="text" name="category" id="category" value="<?= htmlspecialchars($category) ?>">
                         </td>
                     </tr>
 
@@ -53,7 +66,7 @@ foreach ($_SESSION['packages'] as $package) {
                             <label for="source" class="required">Source</label>
                         </td>
                         <td>
-                            <input type="text" name="source" id="source" required value="<?= $source ?>">
+                            <input type="text" name="source" id="source" required value="<?= htmlspecialchars($source) ?>">
                         </td>
                     </tr>
 
@@ -62,7 +75,7 @@ foreach ($_SESSION['packages'] as $package) {
                             <label for="notes">Notes</label>
                         </td>
                         <td>
-                            <input type="text" name="notes" id="notes" value="<?= $notes ?>">
+                            <input type="text" name="notes" id="notes" value="<?= htmlspecialchars($notes) ?>">
                         </td>
                     </tr>
                     <tr>
