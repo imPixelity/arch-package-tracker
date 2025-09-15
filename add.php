@@ -1,4 +1,5 @@
 <?php
+// catch err
 if (isset($_GET['error'])) {
     $err = htmlspecialchars($_GET['error']);
     echo "<script>alert('error, $err');</script>";

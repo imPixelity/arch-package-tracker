@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_GET['id']) || $_GET['id'] === '') {
     header('Location: /index.php?error=invalid_id');
-    break;
+    exit;
 }
 
 foreach ($_SESSION['packages'] as $k => $package) {

@@ -7,8 +7,8 @@ $category = isset($_POST['category']) ? trim($_POST['category']) : '';
 $source = isset($_POST['source']) ? trim($_POST['source']) : '';
 $notes = isset($_POST['notes']) ? trim($_POST['notes']) : '';
 
-if ($id === '' || $package_name === '' || $source === '') {
-    header('Location: /index.php?error=missing_fields');
+if ($package_name === '' || $source === '') {
+    header("Location: /edit.php?id={$id}&error=missing_fields");
     exit;
 }
 

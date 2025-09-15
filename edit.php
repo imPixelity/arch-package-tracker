@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// catch err
+if (isset($_GET['error'])) {
+    $err = htmlspecialchars($_GET['error']);
+    echo "<script>alert('error, $err');</script>";
+}
+
 // if user try to find id via url
 if (!isset($_GET['id']) || $_GET['id'] === '') {
     header('Location: /index.php?error=invalid_id');

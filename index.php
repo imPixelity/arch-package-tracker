@@ -52,7 +52,7 @@ if (!isset($_SESSION['packages'])) {
                                 <a href="edit.php?id=<?= htmlspecialchars($package['id']) ?>" class="edit-button">Edit</a>
                             </td>
                             <td class="delete-box">
-                                <a href="delete.php?id=<?= htmlspecialchars($package['id']) ?>" class="delete-button" onclick="return confirm('Confirm to delete package');">Delete</a>
+                                <a href="delete-process.php?id=<?= htmlspecialchars($package['id']) ?>" class="delete-button" onclick="return confirm('Confirm to delete package');">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
